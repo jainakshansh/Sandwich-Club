@@ -33,7 +33,6 @@ public class DetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-
         ImageView ingredientsIv = findViewById(R.id.image_iv);
 
         Intent intent = getIntent();
@@ -62,7 +61,9 @@ public class DetailActivity extends AppCompatActivity {
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
 
-        setTitle(sandwich.getMainName());
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(sandwich.getMainName());
+        }
     }
 
     private void closeOnError() {
